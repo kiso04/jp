@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selecciona una opción</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ffebee;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding-top: 50px;
+        }
+        
+        .main-menu {
+            width: 100%;
+            max-width: 600px;
+            margin: 50px auto;
+            text-align: center;
+        }
+
+        .hidden {
+            display: none;
+        }
+        
+        .menu-link {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        .menu-link:hover, .menu-link.active {
+            background-color: #c2185b;
+        }
+        .carta {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            text-align: center;
+            position: relative;
+            overflow: hidden; /* Prevent hearts from overflowing */
+        }
+        h1 {
+            color: #e91e63;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        button {
+            background-color: #e91e63;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease; /* Smooth transition */
+        }
+        button:hover {
+            background-color: #c2185b;
+        }
+        #hearts-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        .carta {
+            z-index: 2;
+        }
+        .corazon {
+            font-size: 30px;
+            position: absolute;
+            opacity: 0;
+            transition: opacity 0.5s ease; /* Smooth fade out */
+        }
+    
+        @keyframes volar {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(
+                    calc(var(--mov-x) * 100px),
+                    calc(var(--mov-y) * -150px)
+                ) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="main-menu">
+        <a href="#" class="menu-link active">Carta de Amor</a>
+        <a href="#" class="menu-link">Otros Proyectos</a>
+    </nav>
+    <div id="hearts-container" class="hidden"></div>
+    <div class="carta hidden">
+        <h1>Para mi amor ❤️</h1>
+        <p id="mensaje">Hoy quiero decirte que eres lo más especial en mi vida. Cada momento a tu lado es un regalo.</p>
+        <button id="btnAmor">Haz clic para más amor</button>
+    </div>
+
+    <script src="carta_amor.js"></script>
+</body>
+</html>
